@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
-    "./src/**/*.{njk,md}", "./src/**/*.svg",
+    "./src/**/*.{njk,md}", "./_includes/**/*.{njk,md}", "./src/**/*.svg",
   ],
   safelist: ["active"],
   theme: {
@@ -12,13 +12,14 @@ module.exports = {
     },
 
     screens: {
-      xs: "375px",
+      xs: "500px",
       ...defaultTheme.screens,
     },
 
     colors: {
+      header: "#655aad",
       transparent: "transparent",
-      primary: "#5540af",
+      primary: "#988BF1",
       secondary: "#252426",
       white: "#ffffff",
       black: "#000000",
