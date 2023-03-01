@@ -2,7 +2,9 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: [
-    "./src/**/*.{njk,md}", "./_includes/**/*.{njk,md}", "./src/**/*.svg",
+    "./src/**/*.{njk,md}",
+    "./_includes/**/*.{njk,md}",
+    "./src/**/*.svg",
   ],
   safelist: ["active"],
   theme: {
@@ -13,6 +15,7 @@ module.exports = {
 
     screens: {
       xs: "500px",
+      smx: { max: "767px" },
       ...defaultTheme.screens,
     },
 
@@ -104,4 +107,3 @@ module.exports = {
     require("@tailwindcss/aspect-ratio"),
   ],
 };
-

@@ -1,4 +1,5 @@
-node_modules/
 atomv2/node_modules/
 yarn-*
 **/.DS_Store
+node_modules
+_site
