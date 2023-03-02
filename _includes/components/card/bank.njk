@@ -1,0 +1,37 @@
+{% macro bankCard(params) %}
+<div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch">
+  <div class="mx-auto h-16 w-24 text-center xl:h-16 xl:w-28 flex justify-center">
+      <img src="{{ params.logo | safe }}" alt="{{ params.title }}" />
+  </div>
+  <div class="text-center mb-2">
+    <p class="pt-0 text-lg font-semibold text-grey-10 lg:text-lg">
+      {{ params.title }}
+    </p>
+    {% if params.attributes | length %} 
+      {% for attribute in params.attributes %}
+      <div class="flex items-end justify-between my-2 flex-wrap">
+        <p class="font-semibold text-grey-10 text-sm w-1/2 text-left">
+          {{attribute.name}}:
+        </p>
+        <p class="font-semibold text-grey-10 text-sm w-1/2 text-right">{{attribute.value}}</p>
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% if params.tags | length %}
+    <div class="flex flex-row flex-wrap">
+      {% for tag in params.tags %}
+      <span
+        class="block mr-1 mt-1 text-xs rounded-md bg-lila px-1 py-1 text-grey-10"
+        >{{tag}}</span
+      >
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <button
+      class="bg-primary rounded-md p-2 mt-auto text-white font-semibold w-full"
+    >
+      apply now
+    </button>
+</div>
+{% endmacro %}

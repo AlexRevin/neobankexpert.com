@@ -1,169 +1,60 @@
+{% set popularBanks = [ 
+    { 
+      logo: '/assets/img/Revolut-Logo.wine.svg', title: 'Revolut', 
+      attributes: [ 
+      {name: 'Trust score', value: '3.5/10'},
+      {name: 'Protection', value: 'FDC'} 
+      ],
+      tags: ['personal', 'business', 'teens', 'loans', 'invest']
+    },
+    { 
+      logo: '/assets/img/N26_logo.svg', title: 'N26', 
+      attributes: [ 
+      {name: 'Trust score', value: '4.9/10'},
+      {name: 'Protection', value: '-'} 
+      ],
+      tags: ['personal', 'teens']
+    },
+    { 
+      logo: '/assets/img/wise.svg', title: 'Wise', 
+      attributes: [ 
+      {name: 'Trust score', value: '2.9/10'},
+      {name: 'Protection', value: 'FDC'} 
+      ],
+      tags: ['personal', 'teens', 'multicurrency']
+    },
+    { 
+      logo: '/assets/img/monese.svg', title: 'Monese', 
+      attributes: [ 
+      {name: 'Trust score', value: '5.0/10'},
+      {name: 'Protection', value: 'FDC'} 
+      ],
+      tags: ['personal', 'multicurrency', 'invest']
+    }
+  ] 
+%}
+{% macro bankList(params) %}
 <div class="container py-8 md:py-8" id="lists">
-  <div class="flex flex-row flex-start">
+  <div class="flex flex-row flex-start flex-nowrap">
     <h2
-      class="text-left font-header text-2xl font-semibold uppercase text-primary xs:text-2xl lg:text-3xl"
+      class="text-left font-header text-3xl font-semibold uppercase wrap text-primary xs:text-3xl lg:text-3xl px-0"
     >
-      Most popular
+      {{params.title}}
     </h2>
     <h3
-      class="text-left font-header text-lg font-medium text-black xs:text-base lg:text-l ml-4 pb-1 mt-auto"
+      class="text-left font-header text-lg font-medium text-black xs:text-base lg:text-l ml-4 pb-1 mt-auto uppercase"
     >
-      by region
+      {{params.subtitle}}
     </h3>
   </div>
 
   <div
-    class="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-2 md:gap-4 md:pt-2 lg:grid-cols-6"
+    class="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-2 md:gap-4 md:pt-2 lg:grid-cols-4 items-stretch"
   >
-    <div class="group rounded px-4 py-2 shadow">
-      <div class="mx-auto h-auto w-24 text-center xl:h-auto xl:w-28">
-        <div>
-          <img
-            src="/assets/img/Revolut-Logo.wine.svg"
-            alt="development icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <p
-          class="pt-0 text-base font-semibold text-grey-10 lg:text-base"
-        >
-          Revolut
-      </p>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/N26_logo.svg"
-            alt="content marketing icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/N26_logo.svg"
-            alt="content marketing icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Technical Writing
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-mobile-white.svg"
-            alt="Mobile Application icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-mobile-black.svg"
-            alt="Mobile Application icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Mobile Development
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-email-white.svg"
-            alt="Email Marketing icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-email-black.svg"
-            alt="Email Marketing icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Email Development
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-design-white.svg"
-            alt="Theme Design icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-design-black.svg"
-            alt="Theme Design icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Graphic Design
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
-    <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-      <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-        <div class="hidden group-hover:block">
-          <img
-            src="/assets/img/icon-graphics-white.svg"
-            alt="Graphic Design icon"
-          />
-        </div>
-        <div class="block group-hover:hidden">
-          <img
-            src="/assets/img/icon-graphics-black.svg"
-            alt="Graphic Design icon"
-          />
-        </div>
-      </div>
-      <div class="text-center">
-        <h3
-          class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-        >
-          Web Design
-        </h3>
-        <p class="text-grey pt-4 text-sm group-hover:text-white md:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </div>
+    {%- from "../card/bank.njk" import bankCard -%}
+    {% for bank in popularBanks %}
+      {{bankCard(bank)}}
+    {% endfor %}
   </div>
 </div>
+{% endmacro %}
