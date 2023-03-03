@@ -1,10 +1,10 @@
 {% macro bankCard(params) %}
-<div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch">
+<div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch  divide-y-2 divide-grey-50">
   <div class="mx-auto h-16 w-24 text-center xl:h-16 xl:w-28 flex justify-center">
       <img src="{{ params.logo | safe }}" alt="{{ params.title }}" />
   </div>
-  <div class="text-center mb-2">
-    <p class="pt-0 text-lg font-semibold text-grey-10 lg:text-lg">
+  <div class="text-center mb-2 bord">
+    <p class="pt-0 text-lg font-bold antialiased font-body lg:text-lg">
       {{ params.title }}
     </p>
     {% if params.attributes | length %} 
@@ -33,11 +33,13 @@
     <button
     class="bg-lila-darker rounded-md p-1  text-grey-20 font-semibold w-full mb-2 text-sm mt-2 uppercase"
   >
+    <i class="bx bx-show-alt"></i>
     view details
   </button>
 <button
     class="bg-primary rounded-md p-2 text-white font-semibold w-full uppercase"
   >
+  <i class="bx bx-check"></i>
     apply now
   </button>
   </div>
