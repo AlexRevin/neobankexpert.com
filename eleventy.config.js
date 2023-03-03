@@ -1,4 +1,5 @@
 const PostCSSPlugin = require("eleventy-plugin-postcss");
+const { format } = require("date-fns");
 // const { DateTime } = require("luxon");
 // const markdownItAnchor = require("markdown-it-anchor");
 
@@ -20,6 +21,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginBundle);
 
   // Filters
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", format(new Date(), 't'));
+    return `${urlPart}?${params}`;
+});
   // eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
   // 	// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
   // 	return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
