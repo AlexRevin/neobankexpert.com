@@ -1,0 +1,36 @@
+{%- from "../card/bank-mini.njk" import bankCardMini -%}
+  <div class="w-full">
+    <h2
+      class="font-header text-md md:text-xl uppercase text-header font-semibold"
+    >
+      Best personal neobanks
+    </h2>
+    <div>
+      {% for batch in topBanks.personal | batch(4) %} {% for bank in batch %}
+        {{ bankCardMini({ attributes: bank.attributes, texts: texts }) }}
+      {% endfor %} {% endfor %}
+    </div>
+    <h2
+      class="font-header text-md md:text-xl uppercase text-header font-semibold mt-6"
+    >
+      Best business neobanks
+    </h2>
+    <div>
+      {% for batch in topBanks.business | batch(4) %} {% for bank in batch %}
+        {{ bankCardMini({ attributes: bank.attributes, texts: texts }) }}
+      {% endfor %} {% endfor %}
+    </div>
+
+    <h2
+      class="font-header text-md md:text-xl uppercase text-header font-semibold mt-6 mb-2"
+    >
+      Recommended banks
+    </h2>
+    <div>
+      <ul>
+      {% for batch in allBanks | batch(8) %} {% for bank in batch %}
+        <li class="ml-4"><a href="/{{bank.attributes.name | slugify}}" class="underline text-base">{{bank.attributes.name}}</a></li>
+      {% endfor %} {% endfor %}
+    </ul>
+    </div>
+  </div>

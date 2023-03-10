@@ -1,6 +1,6 @@
 {% macro bankCard(params) %}
 {% set bank = params.attributes %}
-<div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch ">
+<div class="rounded px-4 py-2 shadow self-auto flex flex-col items-stretch ">
   <div class="mx-auto h-16 w-24 text-center xl:h-16 xl:w-28 flex justify-center">
       <img src="{{ bank.logo.data.attributes.url | safe }}" alt="{{ params.title }}" />
   </div>

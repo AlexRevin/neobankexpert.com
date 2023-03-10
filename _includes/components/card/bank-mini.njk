@@ -1,0 +1,23 @@
+{% macro bankCardMini(params) %} {% set bank = params.attributes %}
+<div class="flex flex-row flex-wrap w-full justify-between items-center">
+  <div class="h-12 w-20 flex items-center">
+    <img
+      src="{{ bank.logo.data.attributes.url | safe }}"
+      alt="{{ params.title }}"
+    />
+  </div>
+  <div class="self-start h-12 leading-3 hidden xl:flex items-center ml-6">
+    <p class="pt-0 text-lg font-bold antialiased font-body lg:text-lg">
+      {{ bank.name }}
+    </p>
+  </div>
+  <div class="self-end ml-auto flex items-center h-12">
+    <button
+      class="bg-primary rounded-sm p-2 text-white text-sm sm:text-xs font-semibold w-full uppercase"
+    >
+      <i class="bx bx-check"></i>
+      {{ params.texts.card_button }}
+    </button>
+  </div>
+</div>
+{% endmacro %}

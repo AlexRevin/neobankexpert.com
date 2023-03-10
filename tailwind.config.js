@@ -39,7 +39,10 @@ module.exports = {
 
     container: {
       center: true,
-      padding: "1rem",
+      padding: {
+        DEFAULT: "0.5rem",
+        md: "1rem"
+      }
     },
 
     shadows: {

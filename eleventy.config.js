@@ -44,7 +44,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addCollection("regionBanks", (collectionApi) => {
     const data = collectionApi.getAll()[1].data;
-    return data.regions.map(({ name, id } 
+    return data.regions.map(({ name, id, countries } 
       ) => ({
       name,
       countries,

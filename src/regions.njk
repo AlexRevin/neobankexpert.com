@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+permalink: "regions/"
+eleventyNavigation:
+  key: "Regions"
+  parent: Home
+---
+
+<div class="container py-8 md:py-8 flex flex-row">
+  <div class="flex flex-row flex-wrap md:w-9/12">
+    {% for region in collections.regionBanks %} {% if region.countries | length
+    %}
+    <div class="w-1/2 mb-4">
+      <a href="/regions/{{ region.name | slugify }}">
+        <h1
+          class="text-left font-header font-semibold uppercase text-header text-xl md:text-3xl py-2"
+        >
+          Countries in {{ region.name }}
+        </h1>
+      </a>
+      {% for country in region.countries %}
+      <a href="/countries/{{ country.name | slugify }}">
+        <h2
+          class="text-left font-header font-semibold text-primary pl-4 text-md md: text-xl"
+        >
+          Banks in {{ country.name }}
+        </h2>
+      </a>
+
+      {% endfor %}
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+  <div class="flex-row flex-wrap md:w-3/12 hidden md:flex">
+    {% include '_includes/components/sidebars/right.njk' %}
+  </div>
+</div>
