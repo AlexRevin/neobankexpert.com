@@ -53,6 +53,5 @@ module.exports = async () => {
     Object.keys(outDict).forEach((key) => {
         outDict[key].count = Object.keys(mapSet[key]).length;
     });
-    console.log(Object.values(outDict)[0]);
     return Object.values(outDict);
 };
