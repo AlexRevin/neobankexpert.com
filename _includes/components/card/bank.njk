@@ -1,25 +1,26 @@
 {% macro bankCard(params) %}
+{% set bank = params.attributes %}
 <div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch  divide-y-2 divide-grey-50">
   <div class="mx-auto h-16 w-24 text-center xl:h-16 xl:w-28 flex justify-center">
       <img src="{{ params.logo.data.attributes.url | safe }}" alt="{{ params.title }}" />
   </div>
   <div class="text-center mb-2 bord">
     <p class="pt-0 text-lg font-bold antialiased font-body lg:text-lg">
-      {{ params.name }}
+      {{ bank.name }}
     </p>
-    {% if params.parameters.parameters | length %} 
-      {% for attribute in params.parameters.parameters %}
-      <div class="flex items-end justify-between my-2 flex-wrap">
+    {% if bank.parameters.parameters | length %} 
+      {% for attribute in bank.parameters.parameters %}
+      <div class="flex items-center justify-between my-2 flex-wrap">
         <p class="font-semibold text-grey-10 text-sm w-1/2 text-left">
-          {{attribute.name}}:
+          {{attribute.name | noUnderscore}}:
         </p>
         <p class="font-semibold text-grey-10 text-sm w-1/2 text-right">{{attribute.value}}</p>
       </div>
       {% endfor %}
     {% endif %}
-    {% if params.attributes.data | length %}
+    {% if bank.attributes.data | length %}
     <div class="flex flex-row flex-wrap">
-      {% for tagAttr in params.attributes.data %}
+      {% for tagAttr in bank.attributes.data %}
       <span
         class="block mr-1 mt-1 text-xs rounded-md bg-lila px-1 py-1 text-grey-10"
         >{{tagAttr.attributes.name}}</span
@@ -34,13 +35,13 @@
     class="bg-lila-darker rounded-md p-1  text-grey-20 font-semibold w-full mb-2 text-sm mt-2 uppercase"
   >
     <i class="bx bx-show-alt"></i>
-    view details
+    {{ params.texts.card_view_details }}
   </button>
 <button
     class="bg-primary rounded-md p-2 text-white font-semibold w-full uppercase"
   >
   <i class="bx bx-check"></i>
-    apply now
+  {{ params.texts.card_button }}
   </button>
   </div>
   

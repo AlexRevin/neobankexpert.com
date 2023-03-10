@@ -18,7 +18,10 @@
   >
     {%- from "../card/bank.njk" import bankCard -%}
     {% for bank in params.banks %}
-      {{bankCard(bank.attributes)}}
+      {{ bankCard({
+        attributes: bank.attributes,
+        texts: params.texts
+      }) }}
     {% endfor %}
   </div>
 </div>

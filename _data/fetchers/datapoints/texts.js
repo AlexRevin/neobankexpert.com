@@ -13,6 +13,11 @@ module.exports = async () => {
             right_title
             sub_heading
             heading_mobile
+            subscribe_title
+            subscribe_placeholder
+            subscribe_button
+            card_view_details
+            card_button
           }
         }
       }
