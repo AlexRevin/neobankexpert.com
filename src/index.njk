@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: My Rad Nunjucks Blog Post
+title: NeoBankExpert.com
 eleventyNavigation:
   key: Home
 ---
@@ -15,28 +15,21 @@ eleventyNavigation:
 
   {{ bankList({
     title: 'personal',
+    banks: topBanks.personal,
     subtitle: 'view all'
   })}}
 
   {{ bankList({
     title: 'business',
+    banks: topBanks.business,
     subtitle: 'view all'
   })}}
-
-  {{ bankList({
-    title: 'for teens',
-    subtitle: 'view all'
-  })}}
-  
-
-
 
   <div class="bg-grey-50" id="blog">
     <div class="container py-16 md:py-20">
       <h2
         class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
       >
-        Latest articles
       </h2>
       <div
         class="mx-auto grid w-full grid-cols-1 gap-6 pt-12 sm:w-3/4 lg:w-full lg:grid-cols-3 xl:gap-10"

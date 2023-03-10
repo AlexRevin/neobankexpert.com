@@ -109,8 +109,8 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src", // default: "."
       includes: "../_includes", // default: "_includes"
-      // data: "../_data",          // default: "_data"
-      output: "_site",
+      data: "../_data/fetchers/datapoints",          // default: "_data"
+      output: "_site",  
     },
 
     // -----------------------------------------------------------------

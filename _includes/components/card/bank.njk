@@ -1,14 +1,14 @@
 {% macro bankCard(params) %}
 <div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch  divide-y-2 divide-grey-50">
   <div class="mx-auto h-16 w-24 text-center xl:h-16 xl:w-28 flex justify-center">
-      <img src="{{ params.logo | safe }}" alt="{{ params.title }}" />
+      <img src="{{ params.logo.data.attributes.url | safe }}" alt="{{ params.title }}" />
   </div>
   <div class="text-center mb-2 bord">
     <p class="pt-0 text-lg font-bold antialiased font-body lg:text-lg">
-      {{ params.title }}
+      {{ params.name }}
     </p>
-    {% if params.attributes | length %} 
-      {% for attribute in params.attributes %}
+    {% if params.parameters.parameters | length %} 
+      {% for attribute in params.parameters.parameters %}
       <div class="flex items-end justify-between my-2 flex-wrap">
         <p class="font-semibold text-grey-10 text-sm w-1/2 text-left">
           {{attribute.name}}:
@@ -17,12 +17,12 @@
       </div>
       {% endfor %}
     {% endif %}
-    {% if params.tags | length %}
+    {% if params.attributes.data | length %}
     <div class="flex flex-row flex-wrap">
-      {% for tag in params.tags %}
+      {% for tagAttr in params.attributes.data %}
       <span
         class="block mr-1 mt-1 text-xs rounded-md bg-lila px-1 py-1 text-grey-10"
-        >{{tag}}</span
+        >{{tagAttr.attributes.name}}</span
       >
       {% endfor %}
     </div>

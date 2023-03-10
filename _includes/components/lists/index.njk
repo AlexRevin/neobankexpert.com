@@ -1,38 +1,3 @@
-{% set popularBanks = [ 
-    { 
-      logo: '/assets/img/Revolut-Logo.wine.svg', title: 'Revolut', 
-      attributes: [ 
-      {name: 'Trust score', value: '3.5/10'},
-      {name: 'Protection', value: 'FDC'} 
-      ],
-      tags: ['personal', 'business', 'teens', 'loans', 'invest']
-    },
-    { 
-      logo: '/assets/img/N26_logo.svg', title: 'N26', 
-      attributes: [ 
-      {name: 'Trust score', value: '4.9/10'},
-      {name: 'Protection', value: '-'} 
-      ],
-      tags: ['personal', 'teens']
-    },
-    { 
-      logo: '/assets/img/wise.svg', title: 'Wise', 
-      attributes: [ 
-      {name: 'Trust score', value: '2.9/10'},
-      {name: 'Protection', value: 'FDC'} 
-      ],
-      tags: ['personal', 'teens', 'multicurrency']
-    },
-    { 
-      logo: '/assets/img/monese.svg', title: 'Monese', 
-      attributes: [ 
-      {name: 'Trust score', value: '5.0/10'},
-      {name: 'Protection', value: 'FDC'} 
-      ],
-      tags: ['personal', 'multicurrency', 'invest']
-    }
-  ] 
-%}
 {% macro bankList(params) %}
 <div class="container py-8 md:py-8" id="lists">
   <div class="flex flex-row flex-start flex-nowrap">
@@ -52,8 +17,8 @@
     class="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-2 md:gap-4 md:pt-2 lg:grid-cols-4 items-stretch"
   >
     {%- from "../card/bank.njk" import bankCard -%}
-    {% for bank in popularBanks %}
-      {{bankCard(bank)}}
+    {% for bank in params.banks %}
+      {{bankCard(bank.attributes)}}
     {% endfor %}
   </div>
 </div>

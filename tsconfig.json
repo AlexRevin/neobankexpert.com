@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "useDefineForClassFields": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "rootDirs": ["fetchers"],
+    "outDir": "./_data",
+    "lib": ["es2020"],
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "types": ["node"]
+  },
+  "exclude": ["./node_modules"]
+}

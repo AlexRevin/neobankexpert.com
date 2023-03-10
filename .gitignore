@@ -3,3 +3,5 @@ yarn-*
 **/.DS_Store
 node_modules
 _site
+graphql.schema.json
+.env

@@ -1,13 +1,3 @@
-{% 
-  set list = [
-    { name: 'United States', count: 147 },
-    { name: 'Europe', count: 21 },
-    { name: 'United Kingdom', count: 54 },
-    { name: 'Asia & Pacific', count: 73 },
-    { name: 'Africa', count: 39 },
-    { name: 'Latin America', count: 62 }
-  ]
-%}
 <div class="bg-grey-50" id="about">
   <div class="container flex flex-col items-top py-6 md:py-8 lg:flex-row">
     <div class="w-full text-center hidden md:block lg:block md:w-1/2 lg:text-left">
@@ -15,24 +5,21 @@
         class="font-header text-3xl font-semibold uppercase text-primary sm:text-3xl lg:text-4xl flex flex-wrap flex-row"
       >
         <i class="bx bx-cube-alt bx-sm mr-1 text-primary leading-10"></i>
-      Our Mission
+      {{ texts.title }}
       </h2>
       <h4
         class="pt-2 font-header text-xl font-medium text-black sm:text-xl lg:text-2xl"
       >
-        We deliver the carefuly curated list of neo banks around the globe
+        {{ texts.heading }}
       </h4>
       <p class="pt-4 font-body leading-relaxed text-grey-20">
-        Having neobanking rapidly emerging all around the
-        world, we define our mission as delivering the accurate
-        list of neobanks with the most important details
-        about them
+        {{ texts.sub_heading }}
       </p>
       {#% include './_social.njk' %#}
     </div>
     <div class="w-full text-center hidden text-primary smx:block uppercase">
       <p class="pt-2 pb-4 font-header font-medium text-black text-md leading-relaxed">
-        We deliver the carefuly curated list of neo banks around the globe
+        {{ texts.heading_mobile }}
       </p>
       
     </div>
@@ -40,11 +27,11 @@
       <div>
         <h2 class="font-header text-xl md:text-3xl uppercase text-primary font-semibold px-4 mb-4 flex flex-wrap flex-row">
           <i class="bx bx-wallet text-md md:text-2xl mr-1 mt-1 text-primary leading-5 md:leading-7"></i>
-          Banks in the system
+          {{ texts.right_title }}
         </h2>
         <div class="flex items-top lg:flex-row flex-wrap">
 
-          {% for item in list %}
+          {% for item in regions %}
           <div class="w-1/2 px-4">
             <div class="flex items-end justify-between now">
               <h4 class="font-body font-semibold text-xs md:text-base uppercase text-black">
