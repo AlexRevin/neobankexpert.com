@@ -18,6 +18,8 @@ module.exports = async () => {
             countries {
               data {
                 attributes {
+                  name
+                  iso_code
                   neobanks {
                     data {
                       id
@@ -35,11 +37,16 @@ module.exports = async () => {
     const mapSet = {};
     const outDict = {};
     data.regions?.data.forEach(({ id, attributes }) => {
-        outDict[id ?? "unknown"] = { name: attributes?.name ?? "unknown", count: 0 };
-        mapSet[id ?? 'unknown'] = {};
+        outDict[id ?? "unknown"] = {
+            id,
+            name: attributes?.name ?? "unknown",
+            count: 0,
+            countries: attributes?.countries?.data.map(({ attributes }) => ({ name: attributes?.name ?? 'unknown', iso_code: attributes?.iso_code ?? 'unknown' })),
+        };
+        mapSet[id ?? "unknown"] = {};
         attributes?.countries?.data.forEach((country) => {
             country.attributes?.neobanks?.data.forEach((bank) => {
-                mapSet[id ?? 'unknown'][bank.id ?? 'unknown'] = true;
+                mapSet[id ?? "unknown"][bank.id ?? "unknown"] = true;
             });
         });
     });

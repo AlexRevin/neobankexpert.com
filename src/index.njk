@@ -5,38 +5,32 @@ eleventyNavigation:
   key: Home
 ---
 
-<div>
-  <div class="relative py-8">
-    <div class="absolute inset-0 z-20 bg-header"></div>
-  </div>
+{% include '_includes/components/about/index.njk' %} {%- from
+"_includes/components/lists/index.njk" import bankList -%}
 
-  {% include '_includes/components/about/index.njk' %}
-  {%- from "_includes/components/lists/index.njk" import bankList -%}
-
-  {{ bankList({
-    title: 'personal',
+{{
+  bankList({
+    title: "personal",
     banks: topBanks.personal,
     texts: texts,
-    subtitle: 'view all'
-  })}}
+    subtitle: "view all"
+  })
+}}
 
-  {{ bankList({
-    title: 'business',
+{{
+  bankList({
+    title: "business",
     banks: topBanks.business,
     texts: texts,
-    subtitle: 'view all'
-  })}}
+    subtitle: "view all"
+  })
+}}
 
-  {%- from "_includes/components/subscribe/index.njk" import subscribeEmail -%}
-  {{ subscribeEmail({
+{%- from "_includes/components/subscribe/index.njk" import subscribeEmail -%}
+{{
+  subscribeEmail({
     texts: texts
-  }) }}
+  })
+}}
 
-  
-<div class="bg-primary">
-  <div class="container flex flex-col justify-between py-4 sm:flex-row">
-    <p class="text-center font-body text-white md:text-left">
-      © Copyright 2023. All right reserved, RKEst OU.
-    </p>
-  </div>
-</div>
+{% include '_includes/components/footer/index.njk' %}

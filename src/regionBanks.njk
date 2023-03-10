@@ -1,0 +1,20 @@
+---
+layout: layout.njk
+pagination:
+  data: collections.regionBanks
+  size: 1
+  alias: region
+  addAllPagesToCollections: true
+permalink: "regions/{{ region.name | slugify }}/"
+eleventyComputed:
+  eleventyNavigation:
+    key: "Banks in {{ region.name}} region"
+    parent: Home
+---
+
+
+<div class="container">
+  {{ region | dump | safe }}
+  {{ region.name }}
+</div>
+  

@@ -132,8 +132,12 @@
           </ul>
         </div>
       </div>
-
-      {{ content | safe }}
+      <div>
+        <div class="relative py-8">
+          <div class="absolute inset-0 z-20 bg-header"></div>
+        </div>
+        {{ content | safe }}
+      </div>
     </div>
   </body>
 </html>

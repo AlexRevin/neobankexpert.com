@@ -1,0 +1,10 @@
+---
+pagination:
+    data: collections.countryBanks
+    size: 1
+    alias: country
+permalink: "countries/{{ country.name | slugify }}/"
+---
+
+{{ country | dump | safe }}
+{{ country.name }} is {{ country.iso_code }}

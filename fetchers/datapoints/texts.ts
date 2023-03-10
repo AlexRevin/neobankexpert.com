@@ -17,6 +17,7 @@ module.exports = async () => {
             subscribe_button
             card_view_details
             card_button
+            footer_text
           }
         }
       }

@@ -24,10 +24,39 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
-    params.set("v", format(new Date(), 't'));
+    params.set("v", format(new Date(), "t"));
     return `${urlPart}?${params}`;
-});
-eleventyConfig.addFilter('noUnderscore', (text) => text.replace(/_/g, " "));
+  });
+  eleventyConfig.addFilter("noUnderscore", (text) => text.replace(/_/g, " "));
+
+  let countries = [];
+  eleventyConfig.addCollection("countryBanks", (collectionApi) => {
+    const data = collectionApi.getAll()[1].data;
+    return data.countries.map(({ attributes: { name, iso_code } }) => ({
+      name,
+      iso_code,
+      banks: data.allBanks.filter((bank) =>
+        bank.attributes.countries.data
+          .map((bc) => bc.attributes.iso_code)
+          .includes(iso_code)
+      ),
+    }));
+  });
+  eleventyConfig.addCollection("regionBanks", (collectionApi) => {
+    const data = collectionApi.getAll()[1].data;
+    return data.regions.map(({ name, id } 
+      ) => ({
+      name,
+      countries,
+      banks: data.allBanks.filter((bank) =>
+        bank.attributes.countries.data
+          .reduce( (sum, n) => {return sum.concat(n.attributes.regions.data.map(r => r.id))}, [])
+          .includes(id)
+      ),
+    }));
+  });
+
+
   // eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
   // 	// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
   // 	return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
@@ -110,8 +139,8 @@ eleventyConfig.addFilter('noUnderscore', (text) => text.replace(/_/g, " "));
     dir: {
       input: "src", // default: "."
       includes: "../_includes", // default: "_includes"
-      data: "../_data/fetchers/datapoints",          // default: "_data"
-      output: "_site",  
+      data: "../_data/fetchers/datapoints", // default: "_data"
+      output: "_site",
     },
 
     // -----------------------------------------------------------------

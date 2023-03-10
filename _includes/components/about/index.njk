@@ -35,7 +35,7 @@
           <div class="w-1/2 px-4">
             <div class="flex items-end justify-between now">
               <h4 class="font-body font-semibold text-xs md:text-base uppercase text-black">
-                <a href="#">{{ item.name }}</a>
+                <a href="/regions/{{item.name | slugify }}">{{ item.name }}</a>
               </h4>
               <h3 class="font-body text-xs md:text-base font-bold text-primary"><a href="#">{{item.count}}</a></h3>
             </div>
