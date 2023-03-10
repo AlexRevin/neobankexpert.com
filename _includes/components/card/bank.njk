@@ -1,8 +1,8 @@
 {% macro bankCard(params) %}
 {% set bank = params.attributes %}
-<div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch  divide-y-2 divide-grey-50">
+<div class="group rounded px-4 py-2 shadow self-auto flex flex-col items-stretch ">
   <div class="mx-auto h-16 w-24 text-center xl:h-16 xl:w-28 flex justify-center">
-      <img src="{{ params.logo.data.attributes.url | safe }}" alt="{{ params.title }}" />
+      <img src="{{ bank.logo.data.attributes.url | safe }}" alt="{{ params.title }}" />
   </div>
   <div class="text-center mb-2 bord">
     <p class="pt-0 text-lg font-bold antialiased font-body lg:text-lg">
@@ -18,6 +18,9 @@
       </div>
       {% endfor %}
     {% endif %}
+  </div>
+  
+  <div class="mt-auto w-full">
     {% if bank.attributes.data | length %}
     <div class="flex flex-row flex-wrap">
       {% for tagAttr in bank.attributes.data %}
@@ -28,9 +31,6 @@
       {% endfor %}
     </div>
     {% endif %}
-  </div>
-  
-  <div class="mt-auto w-full">
     <button
     class="bg-lila-darker rounded-md p-1  text-grey-20 font-semibold w-full mb-2 text-sm mt-2 uppercase"
   >
