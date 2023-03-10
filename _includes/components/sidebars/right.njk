@@ -47,4 +47,16 @@
       {% endfor %} 
     </ul>
     </div>
+    <h2
+      class="font-header text-md md:text-xl uppercase text-header font-semibold mt-6 mb-2"
+    >
+      Banks by category
+    </h2>
+    <div>
+      <ul>
+       {% for attr in bankAttributes %}
+        <li class="ml-4"><a href="/{{attr.attributes.name | slugify}}" class="underline text-base">{{attr.attributes.name}}</a></li>
+      {% endfor %}
+    </ul>
+    </div>
   </div>
