@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
     params.set("v", format(new Date(), "t"));
     return `${urlPart}?${params}`;
   });
-  eleventyConfig.addFilter("noUnderscore", (text) => text.replace(/_/g, " "));
+  eleventyConfig.addFilter("noUnderscore", (text) => (text || "").replace(/_/g, " "));
 
   let countries = [];
   eleventyConfig.addCollection("countryBanks", (collectionApi) => {
@@ -55,6 +55,10 @@ module.exports = function (eleventyConfig) {
       ),
     }));
   });
+
+  eleventyConfig.addFilter("findBanksByCountry", (data, country_code) => {
+    return data.filter( bank => bank.attributes.countries.data.map( c => c.attributes.iso_code).includes(country_code))
+  })
 
 
   // eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {

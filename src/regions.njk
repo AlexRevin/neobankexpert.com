@@ -1,6 +1,7 @@
 ---
 layout: layout.njk
 permalink: "regions/"
+title: Regions with neobanks
 eleventyNavigation:
   key: "Regions"
   parent: Home
@@ -21,7 +22,7 @@ eleventyNavigation:
       {% for country in region.countries %}
       <a href="/countries/{{ country.name | slugify }}">
         <h2
-          class="text-left font-header font-semibold text-primary pl-4 text-md md: text-xl"
+          class="text-left font-header font-semibold text-primary pl-4 text-md md:text-xl"
         >
           Banks in {{ country.name }}
         </h2>

@@ -1,9 +1,15 @@
 ---
+layout: layout.njk
 pagination:
     data: collections.countryBanks
     size: 1
     alias: country
 permalink: "countries/{{ country.name | slugify }}/"
+eleventyComputed:
+  title: "Banks in {{ country.name}}"
+  eleventyNavigation:
+    key: "Banks in {{ country.name}}"
+    parent: Home
 ---
 
 {{ country | dump | safe }}
