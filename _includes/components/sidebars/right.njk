@@ -39,7 +39,7 @@
       Banks by country
     </h2>
     
-    <ul class="flex">
+    <ul class="flex flex-row flex-wrap">
       {% for country in collections.countryBanks %} 
         {% if country.banks | length %}
           <li class="ml-2"><a href="/countries/{{country.name | slugify}}" class="underline text-base">{{country.name}}({{country.banks | length}})</a></li>
