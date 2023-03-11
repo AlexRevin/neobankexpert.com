@@ -22,9 +22,9 @@ eleventyComputed:
     
     {% for country in region.countries %}
       <h2 class="text-left font-header font-semibold text-primary pl-4 text-xl md:text-2xl my-4">{{country.name}}</h2>
-      <div class="grid grid-cols-2 gap-4 pt-2 sm:grid-cols-2 md:gap-4 md:pt-2 lg:grid-cols-4 items-stretch">
+      <div class="flex flex-row flex-wrap justify-start mb-8">
       {% for bank in allBanks | findBanksByCountry(country.iso_code) %}
-          <div class="mx-4">
+          <div class="mx-4 flex self-stretch">
             {{bankCard({
               attributes: bank.attributes,
               texts: texts
