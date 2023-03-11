@@ -21,15 +21,21 @@ eleventyComputed:
     </h1>
     
     {% for country in region.countries %}
-      <h2 class="text-left font-header font-semibold text-primary pl-4 text-xl md:text-2xl my-4">{{country.name}}</h2>
+      <div class="flex flex-row flex-wrap items-center">
+        <h2 class="text-left font-header font-semibold text-primary pl-4 text-xl md:text-2xl uppercase">Top banks in {{country.name}}</h2>
+        <a href="/countries/{{country.name | slugify}}"><h3 class="text-left font-body underline font-normal text-secondary pl-2 text-md md:text-xl underline-offset-2 decoration-1">view all</h3></a>
+      </div>
+      
       <div class="flex flex-row flex-wrap justify-start mb-8">
-      {% for bank in allBanks | findBanksByCountry(country.iso_code) %}
+      {% for batch in allBanks | findBanksByCountry(country.iso_code) | batch(8) %}
+        {% for bank in batch %}
           <div class="mx-4 flex self-stretch">
             {{bankCard({
               attributes: bank.attributes,
               texts: texts
             })}}
           </div>
+        {% endfor %}
       {% endfor %}
       </div>
     {% endfor %}
