@@ -1,6 +1,6 @@
 {% macro bankRow(params) %} {% set bank = params.attributes %}
 <div
-  class="flex flex-row flex-wrap w-full items-center justify-start h-16 hover:bg-grey-50"
+  class="flex flex-row flex-nowrap w-full items-center justify-start hover:bg-grey-50"
 >
   <div class="w-20 flex items-center">
     <a href="/{{ bank.name | slugify }}" class="w-20">
@@ -21,7 +21,7 @@
     </p>
   </div>
   {% if bank.attributes.data | length %}
-  <div class="self-center leading-3 flex flex-wrap ml-6 w-40 xl:w-auto">
+  <div class="self-center leading-3 flex-wrap hidden sm:flex ml-6">
     {% for tagAttr in bank.attributes.data %}
     <a href="/{{ bank.name | slugify }}">
       <span
@@ -33,7 +33,7 @@
   </div>
   {% endif %}
   <div
-    class="self-center hidden lg:flex right leading-3 grow flex-wrap ml-6 w-40"
+    class="self-center hidden lg:block leading-3 w-42 ml-auto"
   >
     {% if bank.parameters.parameters | length %} {% for attribute in
     bank.parameters.parameters | trustScoreFromParams %}
@@ -45,10 +45,10 @@
     {% endfor %} {% endif %}
   </div>
 
-  <div class="self-center ml-auto flex mr-2">
+  <div class="self-center flex no-wrap mr-2 ml-auto lg:ml-0 w-36">
     <a
       href="/{{ bank.name | slugify }}"
-      class="bg-lila-darker rounded-sm p-1 text-grey-20 font-semibold w-full mb-2 text-sm mt-2 uppercase"
+      class="bg-lila-darker rounded-sm p-1 text-grey-20 font-semibold mb-2 text-sm mt-2 uppercase w-32"
     >
       <i class="bx bx-show-alt"></i>
       {{ params.texts.card_view_details }}
