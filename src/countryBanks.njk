@@ -11,6 +11,20 @@ eleventyComputed:
     key: "Banks in {{ country.name}}"
     parent: Home
 ---
-
-{{ country | dump | safe }}
-{{ country.name }} is {{ country.iso_code }}
+{%- from "_includes/components/card/bank-horizontal.njk" import bankRow -%}
+<div class="container py-8 md:py-8 flex flex-row">
+  <div class="flex flex-col flex-nowrap md:w-9/12">
+    <h1 class="text-left font-header font-semibold text-header p-4 text-xl md:text-3xl uppercase">
+      Banks in {{country.name}}
+    </h1>
+    {% for bank in country.banks %}
+    <div class="flex flex-col flex-nowrap divide-y-2 border-b-2 border-grey-50 mr-2 xl:mr-6">
+      {{ bankRow({ attributes: bank.attributes, texts: texts }) }}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="flex-row flex-wrap md:w-3/12 hidden md:flex">
+    {% include '_includes/components/sidebars/right.njk' %}
+  </div>
+</div>
+{% include '_includes/components/footer/index.njk' %}

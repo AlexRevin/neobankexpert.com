@@ -28,8 +28,10 @@ module.exports = function (eleventyConfig) {
     return `${urlPart}?${params}`;
   });
   eleventyConfig.addFilter("noUnderscore", (text) => (text || "").replace(/_/g, " "));
-
-  let countries = [];
+  eleventyConfig.addFilter("trustScoreFromParams", (params) => {
+    console.log(params)
+    return params.filter( (p) => p.name === "TrustPilot_Score")
+  })
   eleventyConfig.addCollection("countryBanks", (collectionApi) => {
     const data = collectionApi.getAll()[1].data;
     return data.countries.map(({ attributes: { name, iso_code } }) => ({

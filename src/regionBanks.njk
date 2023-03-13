@@ -19,6 +19,12 @@ eleventyComputed:
     <h1 class="text-left font-header font-semibold text-header p-4 text-xl md:text-3xl uppercase">
       Banks by country in {{region.name}} region
     </h1>
+
+    <ul class="flex flex-row flex-wrap ml-2 mb-8">
+    {% for country in region.countries %}
+      <li class="mx-2"><a href="/countries/{{country.name | slugify}}" class="font-body text-xl underline underline-offset-4 decoration-1 text-primary">{{country.name}}</a></li>
+    {% endfor %}
+    </ul>
     
     {% for country in region.countries %}
       <div class="flex flex-row flex-wrap items-center">
@@ -45,4 +51,5 @@ eleventyComputed:
     {% include '_includes/components/sidebars/right.njk' %}
   </div>
 </div>
+{% include '_includes/components/footer/index.njk' %}
   

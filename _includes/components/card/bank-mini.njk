@@ -12,12 +12,12 @@
     </p>
   </div>
   <div class="self-end ml-auto flex items-center h-12">
-    <button
+    <a href="{{bank.name | slugify }}"
       class="bg-primary rounded-sm p-2 text-white text-sm sm:text-xs font-semibold w-full uppercase"
     >
       <i class="bx bx-check"></i>
       {{ params.texts.card_button }}
-    </button>
+    </a>
   </div>
 </div>
 {% endmacro %}

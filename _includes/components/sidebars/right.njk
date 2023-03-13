@@ -54,7 +54,7 @@
     <div>
       <ul>
        {% for attr in bankAttributes %}
-        <li class="ml-4"><a href="/{{attr.attributes.name | slugify}}" class="underline text-base">{{attr.attributes.name}}</a></li>
+        <li class="ml-4"><a href="/categories/{{attr.attributes.name | slugify}}" class="underline text-base">{{attr.attributes.name}}</a></li>
       {% endfor %}
     </ul>
     </div>
